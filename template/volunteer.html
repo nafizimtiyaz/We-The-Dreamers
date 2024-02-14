@@ -1,0 +1,285 @@
+{% extends "main.html" %}
+{% block body %}
+{% load static %}
+
+<div class="header-height"></div>
+
+<div class="pager-header mb-5">
+    <div class="container">
+        <div class="page-content">
+            <h2>Volunteer Signup Form</h2>
+            <p>
+                Help today because tomorrow you may be the one who <br />
+                needs more helping!
+            </p>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Causes</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="offset-md-3 col-md-6">
+            <div class="contact-form">
+                <h3>Drop us a line</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <form action="{%url 'volunteer'%}" method="POST" id="ajax_form" class="form-horizontal">
+                    {% csrf_token %}
+                    <div class="form-group colum-row row">
+                        <div class="col-sm-6">
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Name" />
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="birthpicker" class="">Date of Birth</label>
+                            <div class="">
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" id="birthpicker" name="date_of_birth" />
+                                    <span class="input-group-append">
+                                        <span class="input-group-text bg-light d-block">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="BloodGroup">Blood Group</label>
+                            <select id="BloodGroup" name="blood_group" class="form-select form-control" aria-label="Default select example">
+                                <option selected>Select Your Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="B+">B+</option>
+                                <option value="AB+">AB+</option>
+                                <option value="O+">O+</option>
+                                <option value="A-">A-</option>
+                                <option value="B-">B-</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group colum-row row">
+                        <div class="col-sm-12">
+                            <label for="perAddress">Permanent Address</label>
+                            <input type="text" id="perAddress" name="permanent_address" class="form-control" placeholder="Permanent Address" />
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="preAddrte">Present Address</label>
+                            <input type="text" id="preAddrte" name="present_address" class="form-control" placeholder="Present Address" />
+                        </div>
+                    </div>
+                    <div class="form-group colum-row row">
+                        <div class="col-md-12 d-flex justify-content-between">
+                            <p class="font-weight-bold">Select Profession:</p>
+                            <div class="radio-group">
+                                <input class="" type="radio" name="profession" value="show1" id="show1" />
+                                <label for="show1">Student</label>
+                            </div>
+                            <div class="radio-group">
+                                <input class="" type="radio" name="profession" value="show2" id="show2" />
+                                <label for="show2">Job</label>
+                            </div>
+                            <div class="radio-group">
+                                <input class="" type="radio" name="profession" value="show3" id="show3" />
+                                <label for="show3">Business</label>
+                            </div>
+                            <div class="radio-group">
+                                <input class="" type="radio" name="profession" value="show4" id="show4" />
+                                <label for="show4">Other</label>
+                            </div>
+                        </div>
+                        <div class="tab-items col-md-12">
+                            <div id="student" class="show1 form-group colum-row row">
+                                <div class="col-sm-6">
+                                    <label for="degreeName">Running Degree Name</label>
+                                    <input type="text" id="degreeName" name="running_degree" class="form-control" placeholder="Degree Name" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="institute">Institute Name</label>
+                                    <input type="text" id="institute" name="institute" class="form-control" placeholder="Institute Name" />
+                                </div>
+                            </div>
+                            <div id="job" class="show2 form-group colum-row row">
+                                <div class="col-sm-6">
+                                    <label for="companyName">Company Name</label>
+                                    <input type="text" id="companyName" name="company_name" class="form-control" placeholder="Your Company Name" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="designation">Designation</label>
+                                    <input type="text" id="designation" name="designation" class="form-control" placeholder="Your Designation" />
+                                </div>
+                            </div>
+                            <div id="business" class="show3 form-group colum-row row">
+                                <div class="col-sm-6">
+                                    <label for="businessType">Business Type</label>
+                                    <input type="text" id="businessType" name="company_name" class="form-control" placeholder="Your Business Type" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="designationB">Designation</label>
+                                    <input type="text" id="designationB" name="designation" class="form-control" placeholder="Your Designation" />
+                                </div>
+                            </div>
+                            <div id="others" class="show4 form-group colum-row row">
+                                <div class="col-sm-12">
+                                    <label for="otherProfession">Other Profession</label>
+                                    <textarea id="otherProfession" name="other_description" cols="30" rows="5" class="form-control message" placeholder="Describe Your Other Profession"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group colum-row row">
+                        <div class="col-sm-6">
+                            <label for="latestDegree">Latest Degree Name</label>
+                            <input type="text" id="latestDegree" name="leftest_degree" class="form-control" placeholder="Your Latest Degree Name" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="latestInstitute">Institute Name</label>
+                            <input type="text" id="latestInstitute" name="institute" class="form-control" placeholder="Institute Name" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="datepicker" class="">Passing Year</label>
+                            <div class="">
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" id="datepicker" name=" passing_year" />
+                                    <span class="input-group-append">
+                                        <span class="input-group-text bg-light d-block">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group colum-row row">
+                        <div class="col-sm-12">
+                            <label for="preEdu">Previous Organization (Optional)</label>
+                            <input type="text" id="preEdu" name="previous_organization" class="form-control" placeholder="Permanent Address" />
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="preResponse">Previous Organization Responsibilities & Duty (Optional)</label>
+                            <input type="text" id="preResponse" name="organization_duty" class="form-control" placeholder="Present Address" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="whatKind">What kind of Chality work you want to do with us</label>
+                            <textarea id="whatKind" name="interested_charity_work" cols="30" rows="5" class="form-control message" placeholder="What kind of Chality work you want to do"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <button id="submit" class="default-btn" type="submit">Send Message</button>
+                        </div>
+                    </div>
+
+                </form>
+                        <div id="thank-you-message" style="display: none;">
+                            <p class="text-success">Thank you for interest. Our volunteer recruit team will contact with you soon.</p>
+                        </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="widget-section padding">
+    <div class="container">
+        <div class="widget-wrap row">
+            <div class="col-md-4 xs-padding">
+                <div class="widget-content">
+                    <img src="img/logo-light.png" alt="logo" />
+                    <p>Lorem Ipsum is simply dummy printing and industry. It has survived not only five centuries, but also the leap electronic type essentially unchanged.</p>
+                    <ul class="social-icon">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 xs-padding">
+                <div class="widget-content">
+                    <h3>Recent Campaigns</h3>
+                    <ul class="widget-link">
+                        <li>
+                            <a href="#">First charity activity of this summer. <span>-1 Year Ago</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Big charity: build school for poor children. <span>-2 Year Ago</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Clean-water system for rural poor. <span>-2 Year Ago</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Nepal earthqueak donation campaigns. <span>-3 Year Ago</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 xs-padding">
+                <div class="widget-content">
+                    <h3>Charitify Location</h3>
+                    <ul class="address">
+                        <li><i class="ti-email"></i> Info@YourDomain.com</li>
+                        <li><i class="ti-mobile"></i> +(333) 052 39876</li>
+                        <li><i class="ti-world"></i> Www.YourWebsite.com</li>
+                        <li><i class="ti-location-pin"></i> 60 Grand Avenue. Central New Road 0708, USA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+        // Function to submit the form via AJAX
+        function submitForm() {
+            var form = document.getElementById('ajax_form');
+            var formData = new FormData(form);
+
+            // Send AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action, true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Hide the form
+                    form.style.display = 'none';
+                    // Show the thank you message
+                    document.getElementById('thank-you-message').style.display = 'block';
+                } else {
+                    console.error(xhr.statusText);
+                }
+            };
+            xhr.onerror = function () {
+                console.error('Request failed.');
+            };
+            xhr.send(formData);
+        }
+
+        // Event listener for form submission
+        document.getElementById('ajax_form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+            submitForm(); // Submit form via AJAX
+        });
+    </script>
+
+{% endblock body %}

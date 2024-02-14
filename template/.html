@@ -1,0 +1,97 @@
+{% extends "main.html" %}
+{% block body %}
+{% load static %}
+<body>
+        
+        <div class="header-height"></div>
+        
+        <div class="pager-header">
+            <div class="container">
+                <div class="page-content">
+                    <h2>Recent Works</h2>
+                    <p>Help today because tomorrow you may be the one who <br>needs more helping!</p>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Causes</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /Page Header -->
+        
+        <section class="causes-section bg-grey bd-bottom padding">
+            <div class="container">
+                <div class="causes-wrap row">
+                    {%for e in activities%}
+                    <div class="col-md-4 padding-15">
+                        <div class="causes-content">
+                           <div class="causes-thumb">
+                                <img src={{e.image.url}} alt="causes">
+<!--                                <a href="#" class="donate-btn">Donate Now<i class="ti-plus"></i></a>-->
+<!--                                <d2iv class="progress">-->
+<!--                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft"></span></div>-->
+<!--                                </div>-->
+                           </div>
+                            <div class="causes-details">
+                                <h3>{{ e.title }}</h3>
+                                <p>{{ e.description |truncatechars:200|safe}}</p>
+                                <div class="donation-box">
+                                    <p><i class="ti-bar-chart"></i>{{e.date}}</p>
+                                    <p><i class="ti-thumb-up"></i>{{e.time}}</p>
+                                </div>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                    </div><!-- /Causes-1 -->
+                    {%endfor%}
+
+                </div>
+            </div>
+        </section><!-- /Causes Section -->
+
+        
+        <section class="widget-section padding">
+            <div class="container">
+                <div class="widget-wrap row">
+                    <div class="col-md-4 xs-padding">
+                        <div class="widget-content">
+                            <img src="img/logo-light.png" alt="logo">
+                            <p>Lorem Ipsum is simply dummy printing and industry. It has survived not only five centuries, but also the leap electronic type essentially unchanged.</p>
+                            <ul class="social-icon">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 xs-padding">
+                        <div class="widget-content">
+                            <h3>Recent Campaigns</h3>
+                            <ul class="widget-link">
+                                <li><a href="#">First charity activity of this summer. <span>-1 Year Ago</span></a></li>
+                                <li><a href="#">Big charity: build school for poor children. <span>-2 Year Ago</span></a></li>
+                                <li><a href="#">Clean-water system for rural poor. <span>-2 Year Ago</span></a></li>
+                                <li><a href="#">Nepal earthqueak donation campaigns. <span>-3 Year Ago</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 xs-padding">
+                        <div class="widget-content">
+                            <h3>Charitify Location</h3>
+                            <ul class="address">
+                                <li><i class="ti-email"></i> Info@YourDomain.com</li>
+                                <li><i class="ti-mobile"></i> +(333) 052 39876</li>
+                                <li><i class="ti-world"></i> Www.YourWebsite.com</li>
+                                <li><i class="ti-location-pin"></i> 60 Grand Avenue. Central New Road 0708, USA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </body>
+
+{% endblock body %}
+        

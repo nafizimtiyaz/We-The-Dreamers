@@ -1,0 +1,204 @@
+{% extends "main.html" %}
+{% block body %}
+{% load static %}
+        
+        <div class="header-height"></div>
+        
+        <div class="pager-header">
+            <div class="container">
+                <div class="page-content">
+                    <h2>About Us</h2>
+                    <p>Help today because tomorrow you may be the one who <br>needs more helping!</p>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">About Us</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /Page Header -->
+
+
+
+        
+        <section class="about-section bg-grey bd-bottom padding">
+            <div class="container">
+                {% for info in about_info %}
+                <div class="row about-wrap">
+                    <div class="col-md-6 xs-padding">
+                        <div class="about-image">
+                            <img src="{{info.image.url}}" alt="about image">
+                        </div>
+                    </div>
+                    <div class="col-md-6 xs-padding">
+                        <div class="about-content">
+                            <h2>{{ info.title }}</h2>
+                            <p>{{info.description }}</p>
+                            <a href="#" class="default-btn">More About Us</a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </section><!-- /About Section -->
+
+
+        <section class="about-section bd-bottom shape circle padding">
+            <div class="container">
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-md-8 xs-padding"> -->
+                        <div class="about-wrap row">
+                            <div class="col-md-6 xs-padding">
+                                <img src="img/history.jpg" alt="about-thumb">
+                                <h3>Our History</h3>
+                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
+                                <a href="#" class="default-btn" data-toggle="modal" data-target="#historyModal">Read More</a>
+                            </div>
+
+                            <!-- Modal -->
+<div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="historyModalLabel">Our History</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
+                <p>Additional information about your history can be added here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+                            <div class="col-md-6 xs-padding">
+                                <img src="img/mission.jpg" alt="about-thumb">
+                                <h3>Our Mission</h3>
+                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
+                                <a href="#" class="default-btn">Read More</a>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                <!-- </div> -->
+            </div>
+        </section>
+        
+        <section class="events-section bg-grey bd-bottom padding">
+            <div class="container">
+                <div id="about-carousel" class="events-wrap owl-Carousel">
+                    <div class="about-item">
+                        <div class="about-item-img">
+                            <img src="img/charityImg.webp" alt="events" />
+                        </div>
+                        <div class="event-details">
+                            <h3>"I have seen firsthand everything Save the Children does to keep children healthy, happy and safe. Any amount will help make change for children in the U.S. and around the world."</h3>
+                            <div class="authorDetails">
+                                <div class="imgProfile">
+                                    <img src="img/comment-2.jpg" alt="">
+                                </div>
+                                <p>Jennifer Garner, Save the Children Ambassador and Trustee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="about-item-img">
+                            <img src="img/charityImg.webp" alt="events" />
+                        </div>
+                        <div class="event-details">
+                            <h3>"I have seen firsthand everything Save the Children does to keep children healthy, happy and safe. Any amount will help make change for children in the U.S. and around the world."</h3>
+                            <div class="authorDetails">
+                                <div class="imgProfile">
+                                    <img src="img/comment-2.jpg" alt="">
+                                </div>
+                                <p>Jennifer Garner, Save the Children Ambassador and Trustee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="about-item-img">
+                            <img src="img/charityImg.webp" alt="events" />
+                        </div>
+                        <div class="event-details">
+                            <h3>"I have seen firsthand everything Save the Children does to keep children healthy, happy and safe. Any amount will help make change for children in the U.S. and around the world."</h3>
+                            <div class="authorDetails">
+                                <div class="imgProfile">
+                                    <img src="img/comment-2.jpg" alt="">
+                                </div>
+                                <p>Jennifer Garner, Save the Children Ambassador and Trustee</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="value-section team-section bg-grey bd-bottom circle shape padding">
+            <div class="container">
+                <div class="section-heading text-center mb-40">
+                    <h2>Our Core Values</h2>
+                    <span class="heading-border"></span>
+                    <!-- <p>Help today because tomorrow you may be the one who <br> needs more helping!</p> -->
+                </div>
+                <div class="value-wrapper row">
+                    <div class="col-lg-3 sm-padding single-wrap">
+                        <div class="team-content value-content single-value">
+                            <h2>Value One</h2>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor</p>
+                            <ul class="check-list">
+                                <li><i class="fa fa-check"></i>We are friendly to other.</li>
+                                <li><i class="fa fa-check"></i>If you join with us,We will </li>
+                                <li><i class="fa fa-check"></i>Its an opportunity to help</li>
+                                <li><i class="fa fa-check"></i>No goal requirements.</li>
+                                <li><i class="fa fa-check"></i>Joining is tottaly free.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 sm-padding single-wrap">
+                        <div class="team-content value-content single-value">
+                            <h2>Value Two</h2>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor</p>
+                            <ul class="check-list">
+                                <li><i class="fa fa-check"></i>We are friendly to other.</li>
+                                <li><i class="fa fa-check"></i>If you join with us,We will </li>
+                                <li><i class="fa fa-check"></i>Its an opportunity to help</li>
+                                <li><i class="fa fa-check"></i>No goal requirements.</li>
+                                <li><i class="fa fa-check"></i>Joining is tottaly free.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 sm-padding single-wrap">
+                        <div class="team-content value-content single-value">
+                            <h2>Value Three</h2>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor</p>
+                            <ul class="check-list">
+                                <li><i class="fa fa-check"></i>We are friendly to other.</li>
+                                <li><i class="fa fa-check"></i>If you join with us,We will </li>
+                                <li><i class="fa fa-check"></i>Its an opportunity to help</li>
+                                <li><i class="fa fa-check"></i>No goal requirements.</li>
+                                <li><i class="fa fa-check"></i>Joining is tottaly free.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 sm-padding single-wrap">
+                        <div class="team-content value-content single-value">
+                            <h2>Value Four</h2>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor</p>
+                            <ul class="check-list">
+                                <li><i class="fa fa-check"></i>We are friendly to other.</li>
+                                <li><i class="fa fa-check"></i>If you join with us,We will </li>
+                                <li><i class="fa fa-check"></i>Its an opportunity to help</li>
+                                <li><i class="fa fa-check"></i>No goal requirements.</li>
+                                <li><i class="fa fa-check"></i>Joining is tottaly free.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Team Section -->
+
+
+
+{% endblock body %}
