@@ -1,0 +1,583 @@
+{% extends "main.html" %}
+{% block body %}
+{% load static %}
+        
+        <div class="header-height"></div>
+
+        <section class="">
+            <div class="container">
+                <div class="offset-md-2 col-md-8 xs-padding">
+                    <div class="contact-form">
+                         <h3>Our Management Charges</h3>
+                        <ul>
+                            <li>10 doctors/morning/afternoon any one session/350-500 patients – 5,000 BDT</li>
+                            <li>20 doctors/two sessions, full day camp/up to 501-1000 patients – 10,000 BDT</li>
+                            <li>20+ Doctors/Two Sessions/More than 1000 Patients – 15,000 BDT</li> <br>
+                            <li>Note: Management charges are reduced if camps are organized by social organizations and investigation facilities are available.</li>
+                        </ul><br>
+                        <form action="{%url 'camp'%}" method="post" id="ajax_form" class="form-horizontal">
+                            {% csrf_token %}
+                            <p class="font-weight-bold">Primary Information: </p>
+                            <div class="form-group colum-row row">
+                                <div class="col-sm-6">
+                                    <label for="distName">District Name</label>
+                                    <input type="text" id="distName" name="districtName" class="form-control" placeholder="District Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="policeStation">Police Station</label>
+                                    <input type="text" id="policeStation" name="policeStation" class="form-control" placeholder="Police Station">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="campPicker" class="">Date of Camp</label>
+                                    <div class="input-group date datePicker">
+                                        <input type="text" class="form-control" id="campPicker" name="campDate" placeholder="Date of Camp: dd/mm/yyy" />
+                                        <span class="input-group-text bg-light">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="hostName">Camp Host Organization Name</label>
+                                    <input type="text" id="hostName" name="hostName" class="form-control" placeholder="Organization Name">
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-sm-6">
+                                    <label for="regNumber">Organization Registration Number</label>
+                                    <input type="text" id="regNumber" name="Org_reg_Number" class="form-control" placeholder="Registration Number">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="estPicker" class="">Organization Establish Date</label>
+                                    <div class="input-group date datePicker" >
+                                        <input type="text" class="form-control" id="estPicker" name="org_est_date" placeholder="Establish Date: dd/mm/yyy" />
+                                        <span class="input-group-text bg-light">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="orgMember">Organization Total Member</label>
+                                    <input type="text" id="orgMember" name="org_total_Member" class="form-control" placeholder="Total Member">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="actMember">Active Member</label>
+                                    <input type="text" id="actMember" name="org_active_Members" class="form-control" placeholder="Active Member">
+                                </div>
+                            </div>
+                            <p class="font-weight-bold">Social Work Philosophy</p>
+                            <div class="form-group colum-row row">
+                                <div class="col-sm-12">
+                                    <label for="purpose">Which Puspose do you want to organize a medical camp?</label>
+                                    <input type="text" id="purpose" name="purpose" class="form-control" placeholder="Purpose to organize a medical camp">
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">Organize an Incidental Medical Camp?</p>
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="incidental_camp" value="YES" id="incidentalYes" />
+                                        <label for="incidentalYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="incidental_camp" value="Or have long-term work plans in the health sector" id="incidentalNo"/>
+                                        <label for="incidentalNo">Or have long-term work plans in the health sector</label>
+                                    </div>
+                                </div>
+                                <div class="tab-items col-md-12">
+                                    <div id="" class="incidentalNo form-group colum-row row">
+                                        <div class="col-sm-12">
+                                            <label for="longTerm">What kind of long-term work plan is there in the health sector?</label>
+                                            <input type="text" id="longTerm" name="incidental_camp_longTerm" class="form-control" placeholder="Long-term work plan" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="font-weight-bold">Previous Camp Management Experience</p>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <p class="">Have organized any medical camp before?</p>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="before_medical_camp" value="YES" id="beforeYes" />
+                                        <label for="beforeYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="before_medical_camp" value="NO" id="beforeNo"/>
+                                        <label for="beforeNo">No</label>
+                                    </div>
+                                </div>
+                                <div class="tab-items col-md-12">
+                                    <div id="" class="beforeYes form-group colum-row row">
+                                        <div class="col-sm-6">
+                                            <label for="howMuch">How Much</label>
+                                            <input type="text" id="howMuch" name="howMuch" class="form-control" placeholder="Long-term work plan">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="preDate">Previous Camp Date</label>
+                                            <div class="input-group date datePicker" >
+                                                <input type="text" class="form-control" id="preCamp" name="Previous_Camp_Date" placeholder="Establish Date: dd/mm/yyy" />
+                                                <span class="input-group-text bg-light">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group colum-row row">
+                                <div class="col-sm-12">
+                                    <label for="whichOrg">With which organization did you organize the camp?</label>
+                                    <input type="text" id="whichOrg" name="Previous_Camp_with_whichOrg" class="form-control" placeholder="Institute Name" >
+                                </div>
+                            </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group colum-row row">
+                                <div class="col-sm-12">
+                                    <label for="regFee">How much to keep the registration fee of patients?</label>
+                                    <input type="text" id="regFee" name="regFee_per_person" class="form-control" placeholder="Institute Name" >
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <p class="">Whether to include the local diagnostic center?</p>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name=include_local_diagnostic_center" value="YES" id="localDiagYes" />
+                                        <label for="localDiagYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="include_local_diagnostic_center" value="NO" id="localDiagNo"/>
+                                        <label for="localDiagNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <p class="">Whether to include the local pharmaceuticals?</p>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="include_local_farma" value="YES" id="localFarmaYes" />
+                                        <label for="localFarmaYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="include_local_farma" value="NO" id="localFarmaNo"/>
+                                        <label for="localFarmaNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="font-weight-bold ">Camp execution mechanism – External affairs</p>
+                            <div class="form-group colum-row row">
+                                <div class="col-sm-6">
+                                    <label for="expPatient">How many patients are expecting?</label>
+                                    <input type="text" id="expPatient" name="expected_Patient" class="form-control" placeholder="How many patients" >
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="campVanue">*Camp Vanue(specifically mention it)</label>
+                                    <input type="text" id="campVanue" name="camp_Vanue" class="form-control" placeholder="Institutions/Hospital/Clinic...">
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">Will the support of the local union council be available in organizing the camp?</p>
+                                <div class="col-md-12 d-flex justify-content-start">
+                                    <div class="radio-group mr-5">
+                                        <input class="" type="radio" name="local_unionCouncil" value="YES" id="unionCouncilYes" />
+                                        <label for="unionCouncilYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="local_unionCouncil" value="NO" id="unionCouncilNo"/>
+                                        <label for="unionCouncilNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">Will the local upazila administration and UNO help in organizing the camp?</p>
+                                <div class="col-md-12 d-flex justify-content-start">
+                                    <div class="radio-group mr-5">
+                                        <input class="" type="radio" name="police" value="YES" id="policeYes" />
+                                        <label for="policeYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="police" value="NO" id="policeNo"/>
+                                        <label for="policeNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">Can the support of local community leaders be available in organizing the camp?</p>
+                                <div class="col-md-12 d-flex justify-content-start">
+                                    <div class="radio-group mr-5">
+                                        <input class="" type="radio" name="local_community_leader" value="YES" id="leaderYes" />
+                                        <label for="leaderYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="local_community_leader" value="NO" id="leaderNo"/>
+                                        <label for="leaderNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">Will the support of the local police station administration and OC be available in organizing the camp?</p>
+                                <div class="col-md-12 d-flex justify-content-start">
+                                    <div class="radio-group mr-5">
+                                        <input class="" type="radio" name="local_upazila" value="YES" id="upazilaYes" />
+                                        <label for="upazilaYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="local_upazila" value="NO" id="upazilaNo"/>
+                                        <label for="upazilaNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="font-weight-bold">Camp execution mechanism – Internal affairs </p>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <p class="">Can all patients be registered in advance?</p>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="patient_advanced_reg" value="YES" id="regAdvancedYes" />
+                                        <label for="regAdvancedYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="patient_advanced_reg" value="NO" id="regAdvancedNo"/>
+                                        <label for="regAdvancedNo">No</label>
+                                    </div>
+                                </div>
+                                <div class="tab-items col-md-12">
+                                    <div id="" class="regAdvancedYes form-group colum-row row">
+                                        <div class="col-sm-12">
+                                            <label for="percentage">What percentage of the total expected number of patients can be pre-registered?</label>
+                                            <input type="text" id="percentage" name="percentage_patient_advanced_reg" class="form-control" placeholder="Percentage of the total expected number of patients">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <p class="">Do you plan to provide medication?</p>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="provide_medicine" value="YES" id="medicineYes" />
+                                        <label for="medicineYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="provide_medicine" value="NO" id="medicineNo"/>
+                                        <label for="medicineNo">No</label>
+                                    </div>
+                                </div>
+                                <div class="tab-items col-md-12">
+                                    <div class="spendMoney form-group colum-row row">
+                                        <div class="col-sm-12">
+                                            <label for="spendMoney">How much money can you spend on medicine?</label>
+                                            <input type="text" id="spendMoney" name="amount_of_spendMoney_for_medicine" class="form-control" placeholder="Money can you spend">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-sm-12">
+                                    <label for="volunteer">How many volunteers can you attend to work with the medical team? (Minimum 10 people)</label>
+                                    <input type="text" id="volunteer" name="volunteer_attend_for_camp" class="form-control" placeholder="Volunteers you can attend">
+                                </div>
+                            </div>
+                            <div id="" class="form-group colum-row row">
+                                <div class="col-sm-12">
+                                    <label for="numDoc">How many medical team you want to take: Number of medical team members = Doctor + Camp Organizer <br>
+                                        [(No. of doctors = No. of patients ÷ 40) + 3 camp organizers + supporting staff required for examination]
+                                    </label>
+                                    <input type="text" id="numDoc" name="medical_team_want_to_take" class="form-control" placeholder="Doctor + Camp Organizer">
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">Are there volunteers like conducting opening and closing ceremonies? Or the medical team will conduct these events:</p>
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="volunterr_conduct" value="Yes (Volunteers will conduct)" id="conductYes" />
+                                        <label for="conductYes">Yes (Volunteers will conduct)</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="volunterr_conduct" value="No (Medical Team Will Conduct)" id="conductNo"/>
+                                        <label for="conductNo">No (Medical Team Will Conduct)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">Where will be the venue for doctors' breakfast, lunch ± dinner?</p>
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="doctor_eat_Vanue" value="At Camp Vanue" id="eatVanueYes" />
+                                        <label for="eatVanueYes">At Camp Vanue</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="doctor_eat_Vanue" value="Far From Camp Vanue" id="eatVanueNo"/>
+                                        <label for="eatVanueNo">Far From Camp Vanue</label>
+                                    </div>
+                                </div>
+                                <div class="tab-items col-md-12">
+                                    <div id="eatingAway" class="eatingAway form-group colum-row row">
+                                        <div class="col-sm-12">
+                                            <label for="campAway">Mention that away from the campsite:</label>
+                                            <input type="text" id="campAway" name="away_from_the_campsite" class="form-control" placeholder="Money can you spend">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">Any site seeing plans with doctors after the camp:</p>
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="site_seeing_plans" value="YES" id="siteSeeingYes" />
+                                        <label for="siteSeeingYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="site_seeing_plans" value="NO" id="siteSeeingNo"/>
+                                        <label for="siteSeeingNo">No</label>
+                                    </div>
+                                </div>
+                                <div class="tab-items col-md-12">
+                                    <div id="siteSeeing" class="siteSeeingNo form-group colum-row row">
+                                        <div class="col-sm-12">
+                                            <label for="spotName">Mention the name of the spot</label>
+                                            <input type="text" id="spotName" name="spotName" class="form-control" placeholder="Money can you spend">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <p class="">After completing the camp and doing the medical board, it becomes difficult to come back day by day. Is there a one night accommodation arrangement?</p>
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="one_night_accommodation" value="YES" id="accommodationYes" />
+                                        <label for="accommodationYes">Yes</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input class="" type="radio" name="one_night_accommodation" value="NO" id="accommodationNo"/>
+                                        <label for="accommodationNo">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fCheckBox form-group colum-row row">
+                                <div class="col-md-12">
+                                    <p class="font-weight-bold">What investigations do patients want to keep?</p>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="blood_grouping" type="checkbox" value="yes" id="bloodGrouping"/>
+                                    <label class="form-check-label" for="bloodGrouping">
+                                        Blood grouping – 15 BDT per patient
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="eye_examination" type="checkbox" value="yes" id="eyeTest"/>
+                                    <label class="form-check-label" for="eyeTest">
+                                        Eye examination and power adjustment of spectacles – 25 BDT per patient
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="ear_examination" type="checkbox" value="yes" id="earTest"/>
+                                    <label class="form-check-label" for="earTest">
+                                        Ear examination and necessary medical treatment – Tk 25 per patient
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="diabetes_checkup" type="checkbox" value="yes" id="diabeticsTest"/>
+                                    <label class="form-check-label" for="diabeticsTest">
+                                        Diabetes check up – 25 BDT per patient
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="urine_test" type="checkbox" value="yes" id="urineTest"/>
+                                    <label class="form-check-label" for="urineTest">
+                                        Urine test – 25 BDT per patient
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="ecg" type="checkbox" value="yes" id="ecgTest"/>
+                                    <label class="form-check-label" for="ecgTest">
+                                        ECG – 50 BDT per patient
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="ultrasonogram" type="checkbox" value="yes" id="ustraTest"/>
+                                    <label class="form-check-label" for="ustraTest">
+                                        Ultrasonogram – Tk 200 per patient
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="weight_height_measurement" type="checkbox" value="yes" id="weightTest"/>
+                                    <label class="form-check-label" for="weightTest">
+                                        Weight and Height Measurement - Free
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="pulse_check_up_blood_oxygen_measurement" type="checkbox" value="yes" id="pulseTest"/>
+                                    <label class="form-check-label" for="pulseTest">
+                                        Pulse Check Up & Blood Oxygen Measurement - Free
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" type="checkbox" name="blood_pressure_check_up" value="yes" id="bPressureTest"/>
+                                    <label class="form-check-label" for="bPressureTest">
+                                        Blood Pressure Check Up - Free
+                                    </label>
+                                </div>
+                                <div class="col-sm-12 form-check">
+                                    <input class="form-check-input" name="heart_lung_check_up" type="checkbox" value="yes" id="lungTest"/>
+                                    <label class="form-check-label" for="lungTest">
+                                        Heart and Lung Check Up - Free
+                                    </label>
+                                </div>
+                            </div>
+
+                            <p class="font-weight-bold">Mention your volunteers name, facebook id and mobile number in the following posts</p>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12">
+                                    <p><span class="font-weight-bold">Chief Executive</span> - Liaison with police station, upazila and local leadership</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="chiefEdu">Education/Employment Institution</label>
+                                    <input type="text" id="chiefEdu" name="chief_executive_profession" class="form-control" placeholder="Education/Employment Institution" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="chiefMobile">Mobile Number</label>
+                                    <input type="tel" id="chiefMobile" name="chief_executive_mobilenumber" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="chiefFb">facebook ID</label>
+                                    <input type="tel" id="chiefFb" name="chief_executive_facebook" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12">
+                                    <p><span class="font-weight-bold">Communication Coordinator</span> - Communication supervision of the medical team</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="cCoordinatorEdu">Education/Employment Institution</label>
+                                    <input type="text" id="cCoordinatorEdu" name="communication_coordinator_profession" class="form-control" placeholder="Education/Employment Institution" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="cCoordinatorMobile">Mobile Number</label>
+                                    <input type="tel" id="cCoordinatorMobile" name="communication_coordinator_mobilenumber" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="cCoordinatorFb">facebook ID</label>
+                                    <input type="tel" id="cCoordinatorFb" name="communication_coordinator_facebook" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12">
+                                    <p><span class="font-weight-bold">Decoration and Discipline Coordinator</span> - Before the camp - creating banners, leaflets and prescription pads, decorating the venue
+                                        During Camp – Volunteer supervision</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="ddCoordinatorEdu">Education/Employment Institution</label>
+                                    <input type="text" id="ddCoordinatorEdu" name="decoration_discipline_coordinator_profession" class="form-control" placeholder="Education/Employment Institution" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="ddCoordinatorMobile">Mobile Number</label>
+                                    <input type="tel" id="ddCoordinatorMobile" name="decoration_discipline_coordinator_mobilenumber" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="ddCoordinatorFb">facebook ID</label>
+                                    <input type="tel" id="ddCoordinatorFb" name="decoration_discipline_coordinator_facebook" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12">
+                                    <p><span class="font-weight-bold">Event Management Coordinator</span> - Conducting the opening and closing ceremonies</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="eventCoordinatorEdu">Education/Employment Institution</label>
+                                    <input type="text" id="eventCoordinatorEdu" name="event_management_coordinator_profession" class="form-control" placeholder="Education/Employment Institution" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="eventCoordinatorMobile">Mobile Number</label>
+                                    <input type="tel" id="eventCoordinatorMobile" name="event_management_coordinator_mobilenumber" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="eventCoordinatorFb">facebook ID</label>
+                                    <input type="tel" id="eventCoordinatorFb" name="event_management_coordinator_facebook" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12">
+                                    <p><span class="font-weight-bold">Food and Hospitality Coordinator</span> - Hospitality of medical team</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="foodCoordinatorEdu">Education/Employment Institution</label>
+                                    <input type="text" id="foodCoordinatorEdu" name="Food_hospitality_coordinator_profession" class="form-control" placeholder="Education/Employment Institution" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="foodCoordinatorMobile">Mobile Number</label>
+                                    <input type="tel" id="foodCoordinatorMobile" name="Food_hospitality_coordinator_mobilenumber" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="foodCoordinatorFb">facebook ID</label>
+                                    <input type="tel" id="foodCoordinatorFb" name="Food_hospitality_coordinator_facebook" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                            <div class="form-group colum-row row">
+                                <div class="col-md-12">
+                                    <p><span class="font-weight-bold">Publicity Coordinator</span> - To ensure fair and maximum publicity of the camp</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="publicityCoordinatorEdu">Education/Employment Institution</label>
+                                    <input type="text" id="publicityCoordinatorEdu" name="publicity_coordinator_profession" class="form-control" placeholder="Education/Employment Institution" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="publicityCoordinatorMobile">Mobile Number</label>
+                                    <input type="tel" id="publicityCoordinatorMobile" name="publicity_coordinator_mobilenumber" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label for="publicityCoordinatorFb">facebook ID</label>
+                                    <input type="tel" id="publicityCoordinatorFb" name="publicity_coordinator_facebook" class="form-control" placeholder="Mobile Number" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <button id="submit" class="default-btn" type="submit">Submit</button>
+                                </div>
+                            </div>
+                            <!-- <div id="form-messages" class="alert" role="alert"></div> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+
+        (function($){ "use strict";
+
+        /*=========================================================================
+            Google Map Settings
+        =========================================================================*/
+                         
+            google.maps.event.addDomListener(window, 'load', init);
+
+            function init() {
+
+                var mapOptions = {
+                    zoom: 11,
+                    center: new google.maps.LatLng(40.6700, -73.9400), 
+                    scrollwheel: false,
+                    navigationControl: false,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    draggable: false,
+                    styles: [{"featureType":"administrative","elementType":"all","stylers":[{"saturation":"-100"}]},{"featureType":"administrative.province","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"all","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","elementType":"all","stylers":[{"saturation":-100},{"lightness":"50"},{"visibility":"simplified"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":"-100"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"all","stylers":[{"lightness":"30"}]},{"featureType":"road.local","elementType":"all","stylers":[{"lightness":"40"}]},{"featureType":"transit","elementType":"all","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]},{"featureType":"water","elementType":"labels","stylers":[{"lightness":-25},{"saturation":-100}]}]
+                };
+
+                var mapElement = document.getElementById('google_map');
+
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(40.6700, -73.9400),
+                    map: map,
+                    title: 'Location!'
+                });
+            }
+
+        })(jQuery);
+
+        </script>
+
+{% endblock body %}

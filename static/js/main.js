@@ -228,5 +228,122 @@
             $('#scroll-to-top').fadeOut();
         }
     });
+
+    $("[id^='show']").on("click", function() {
+        var divElements = $("[class^=show]")
+        var radioBtn = this.id;
+        console.log(radioBtn)
+        divElements.each(function(index, element) {
+            if (element.classList.contains(radioBtn)) {
+            $(element).show();
+            } else {
+            $(element).hide();
+            }
+        })
+    });
+
+    $(document).ready(function () {
+        $('.incidentalNo').hide();
+        $('#incidentalYes, #incidentalNo').change(function () {
+            if ($('#incidentalNo').prop('checked')) {
+                $('.incidentalNo').show();
+            } else {
+                $('.incidentalNo').hide();
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('.beforeYes').hide();
+        $('#beforeYes, #beforeNo').change(function () {
+            if ($('#beforeYes').prop('checked')) {
+                $('.beforeYes').show();
+            } else {
+                $('.beforeYes').hide();
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('.regAdvancedYes').hide();
+        $('#regAdvancedYes, #regAdvancedNo').change(function () {
+            if ($('#regAdvancedYes').prop('checked')) {
+                $('.regAdvancedYes').show();
+            } else {
+                $('.regAdvancedYes').hide();
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('.spendMoney').hide();
+        $('#medicineYes, #medicineNo').change(function () {
+            if ($('#medicineYes').prop('checked')) {
+                $('.spendMoney').show();
+            } else {
+                $('.spendMoney').hide();
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('.eatingAway').hide();
+        $('#eatVanueYes, #eatVanueNo').change(function () {
+            if ($('#eatVanueNo').prop('checked')) {
+                $('.eatingAway').show();
+            } else {
+                $('.eatingAway').hide();
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('.siteSeeingNo').hide();
+        $('#siteSeeingYes, #siteSeeingNo').change(function () {
+            if ($('#siteSeeingNo').prop('checked')) {
+                $('.siteSeeingNo').show();
+            } else {
+                $('.siteSeeingNo').hide();
+            }
+        });
+    });
+
+    $(function(){
+        $('#datepicker, #birthpicker').datepicker({
+            format: "dd/mm/yyyy",
+            changeMonth: true,
+            changeYear: true,
+            endDate: new Date(),
+        });
+    });
+
+    $(function(){
+        var endDate = new Date();
+        endDate.setMonth(endDate.getMonth() + 3);
+        $('#campPicker').datepicker({
+            format: "dd/mm/yyyy",
+            changeMonth: true,
+            changeYear: false,
+            endDate: endDate,
+        });
+    });
+
+    $(function(){
+        $('#estPicker').datepicker({
+            format: "dd/mm/yyyy",
+            changeMonth: true,
+            changeYear: true,
+            endDate: new Date(),
+        });
+    });
+    $(function(){
+        $('#preCamp').datepicker({
+            format: "dd/mm/yyyy",
+            changeMonth: true,
+            changeYear: true,
+            endDate: new Date(),
+            multidate: true
+        });
+    });
              
 })(jQuery);

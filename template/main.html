@@ -13,7 +13,7 @@
 
         <title>We The Dreamers</title>
 
-		<link rel="shortcut icon" type="image/x-icon" href={%static "img/favicon.png"%}>
+		<link rel="shortcut icon" type="image/x-icon" href={%static "img/logo1.png"%}>
 
         <!-- Font Awesome Icons CSS -->
         <link rel="stylesheet" href={%static "css/font-awesome.min.css"%}>
@@ -25,6 +25,7 @@
         <link rel="stylesheet" href={%static "css/elegant-line-icons.css"%}>
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href={%static "css/bootstrap.min.css"%}>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"/>
 		<!-- Venobox CSS -->
         <link rel="stylesheet" href={%static "css/venobox/venobox.css"%}>
 		<!-- OWL-Carousel CSS -->
@@ -36,13 +37,16 @@
         <!-- Nivo Slider CSS -->
         <link rel="stylesheet" href={%static "css/nivo-slider.css"%}>
 
-        <link rel="stylesheet" href="code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+<!--        <link rel="stylesheet" href="code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">-->
 		<!-- Main CSS -->
         <link rel="stylesheet" href={%static "css/main.css"%}>
 		<!-- Responsive CSS -->
         <link rel="stylesheet" href={%static "css/responsive.css"%}>
 
         <script src={%static "js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"%}></script>
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=65daf3abafa82e0019c9e437&product=inline-share-buttons&source=platform" async="async"></script>
+
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -80,7 +84,7 @@
                     <div class="bottom-content-wrap row">
                         <div class="col-sm-4">
                             <div class="site-branding">
-                                <a href="#"><img src="img/logo.png" alt="Brand"></a>
+                                <a href="{%url 'home'%}"><img src={%static "img/logo1.png"%} alt="Brand"></a>
                             </div>
                         </div>
                        <div class="col-sm-8 text-right">
@@ -92,7 +96,8 @@
 
                                 </li>
                                 <li><a href="/events">Event</a></li>
-                               <li><a href="#">Recent Works</a>
+                               <li><a href="{%url 'camp'%}">Book A Camp</a></li>
+                               <li><a href="{% url 'all'%}">Recent Works</a>
                                     <ul>
                                         {%for cats in cat%}
                                        <li><a href="{% url 'category_detail' cats.slug %}">{{cats.name}}</a></li>
@@ -116,6 +121,47 @@
             {% block body %}
         {% endblock %}
 
+<section class="widget-section padding">
+            <div class="container">
+                <div class="widget-wrap row">
+                    <div class="col-md-4 xs-padding">
+                        <div class="widget-content">
+                            <img src={%static "img/logo1.png"%} alt="logo">
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor</p>
+                            <ul class="social-icon">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 xs-padding">
+                        <div class="widget-content">
+                            <h3>Recent Campaigns</h3>
+                            <ul class="widget-link">
+                                <li><a href="#">First charity activity of this summer. <span>-1 Year Ago</span></a></li>
+                                <li><a href="#">Big charity: build school for poor children. <span>-2 Year Ago</span></a></li>
+                                <li><a href="#">Clean-water system for rural poor. <span>-2 Year Ago</span></a></li>
+                                <li><a href="#">Nepal earthqueak donation campaigns. <span>-3 Year Ago</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 xs-padding">
+                        <div class="widget-content">
+                            <h3>Charitify Location</h3>
+                            <ul class="address">
+                                <li><i class="ti-email"></i> Info@YourDomain.com</li>
+                                <li><i class="ti-mobile"></i> +(333) 052 39876</li>
+                                <li><i class="ti-world"></i> Www.YourWebsite.com</li>
+                                <li><i class="ti-location-pin"></i> 60 Grand Avenue. Central New Road 0708, USA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- ./Widget Section -->
 
     <footer class="footer-section">
 			<div class="container">
@@ -165,8 +211,9 @@
         <script src={%static "js/vendor/jquery.nivo.slider.pack.js"%}></script>
         <!-- Letter Animation JS -->
 		<script src={%static "js/vendor/letteranimation.min.js"%}></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
 
-         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<!--         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>-->
         <!-- Wow JS -->
 		<script src={%static "js/vendor/wow.min.js"%}></script>
 		<!-- Contact JS -->

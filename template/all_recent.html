@@ -21,7 +21,7 @@
         <section class="causes-section bg-grey bd-bottom padding">
             <div class="container">
                 <div class="causes-wrap row">
-                    {%for e in activities%}
+                    {%for e in activity%}
                     <div class="col-md-4 padding-15">
                         <div class="causes-content">
                            <div class="causes-thumb">
@@ -33,6 +33,7 @@
                            </div>
                             <div class="causes-details">
                                 <h3>{{ e.title }}</h3>
+                                <h4>Wings:{{e.category}}</h4>
                                 <p>{{ e.description |truncatechars:200|safe}}</p>
                                 <div class="donation-box">
                                     <p><i class="ti-bar-chart"></i>{{e.date}}</p>

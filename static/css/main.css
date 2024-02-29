@@ -275,7 +275,7 @@ button{
     margin: 5px;
 }
 .default-btn{
-    background-color: #f8b864;
+    background-color: #20c997;
     color: #fff;
     line-height: 45px;
     display: inline-block;
@@ -285,7 +285,7 @@ button{
     font-weight: 500;
 }
 .default-btn:hover{
-    background-color: #ffb451;
+    background-color: #008e48;
     color: #fff;
 }
 .default-btn.btn_sm{
@@ -295,7 +295,7 @@ button{
 
 /*Section Heading Style*/
 .section-heading .heading-border{
-    border-top: 5px solid #f8b864;
+    border-top: 5px solid #b50000;
     width: 50px;
     display: inline-block;
     margin-top: 0;
@@ -368,7 +368,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
 .header-height{ width: 100%; }
 /*Top Header*/
 .top-header{
-    background-color: #f8b864;
+    background-color: #008e48;
     padding: 10px 0;
 }
 .top-content-wrap ul li{
@@ -424,7 +424,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
     font-size: 16px;
 }
 #mainmenu li a:hover{
-    color: #f8b864;
+    color: #008e48;
 }
 /*Dropdown */
 #mainmenu li ul{
@@ -1258,7 +1258,7 @@ a,a:hover, .overlay, img, .form-control,  .form-control:hover, button{
    15.0 Page Header Section
    ========================================================================== */
 .pager-header{
-    background-image: url(../img/page-header-bg.jpg);
+    background-image: url(../img/event.jpg);
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: center center;
@@ -2048,26 +2048,26 @@ span.date{
     color: #fff;
 }
 /* My CSS */
-.ui-datepicker {
-    width: 300px;
-    height: 300px;
+/* .ui-datepicker {
     margin: 5px auto 0;
     font: 12pt Arial, sans-serif;
-    /*-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);*/
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+    background: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .ui-datepicker table {
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .ui-datepicker-header {
-    background: #3399ff;
-    color: #ffffff;
-    font-family: "Times New Roman";
-    border-width: 1px 0 0 0;
-    border-style: solid;
-    border-color: #111;
+    border-width: 0;
+    padding: 0 10px;
 }
 
 .ui-datepicker-title {
@@ -2089,22 +2089,17 @@ span.date{
 
 .ui-datepicker thead {
     background-color: #f7f7f7;
-
-    /*border-bottom: 1px solid #bbb;*/
 }
 
 .ui-datepicker th {
-    background-color: #808080;
     text-transform: uppercase;
     font-size: 8pt;
     color: #666666;
-    /*text-shadow: 1px 0px 0px #fff;*/
-    /*filter: dropshadow(color=#fff, offx=1, offy=0);*/
+    text-align: center;
 }
 
 .ui-datepicker tbody td {
     padding: 0;
-    /*border-right: 1px solid #808080;*/
 }
 
 .ui-datepicker tbody td:last-child {
@@ -2126,21 +2121,18 @@ span.date{
 .ui-datepicker td span,
 .ui-datepicker td a {
     display: inline-block;
-    /*font-weight: bold;*/
     text-align: center;
     width: 30px;
     height: 30px;
     line-height: 30px;
     color: #ffffff;
-    /*text-shadow: 1px 1px 0px #fff;*/
-    /*filter: dropshadow(color=#fff, offx=1, offy=1);*/
 }
 
 .ui-datepicker-calendar .ui-state-default {
     background: linear-gradient(#999999, #737373);
     color: #ffffff;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
 
 .ui-datepicker-calendar .ui-state-hover {
@@ -2163,7 +2155,7 @@ span.date{
 .ui-datepicker-unselectable .ui-state-default {
     background: #d6e4be;
     color: #000;
-}
+} */
 #student,
 #job,
 #business,
@@ -2213,10 +2205,6 @@ span.date{
     justify-content: center;
     align-items: center;
 }
-.value-section .value-wrapper .single-wrap{
-    /* gap: 10px; */
-
-}
 .value-section .single-value{
     background-color: rgba(250, 250, 250, 0.9);
     padding: 20px 15px;
@@ -2239,3 +2227,28 @@ span.date{
 .value-section .value-content p{
     text-align: justify;
 }
+.input-group.datePicker {
+    position: relative;
+}
+.input-group.datePicker .form-control {
+    width: 100%;
+    z-index: 10;
+    background-color: transparent;
+    cursor: pointer;
+}
+.input-group.datePicker .input-group-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    border-radius: 0;
+}
+.fCheckBox{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#siteSeeing, #eatingAway{display: none;}
+

@@ -32,7 +32,7 @@
                     <div class="col-md-6 xs-padding">
                         <div class="about-content">
                             <h2>{{ info.title }}</h2>
-                            <p>{{info.description }}</p>
+                            <p>{{info.description|truncatechars:200|safe}}</p>
                             <a href="#" class="default-btn">More About Us</a>
                         </div>
                     </div>
@@ -47,39 +47,22 @@
                 <!-- <div class="row"> -->
                     <!-- <div class="col-md-8 xs-padding"> -->
                         <div class="about-wrap row">
+                            {%for m in mission%}
                             <div class="col-md-6 xs-padding">
-                                <img src="img/history.jpg" alt="about-thumb">
-                                <h3>Our History</h3>
-                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
-                                <a href="#" class="default-btn" data-toggle="modal" data-target="#historyModal">Read More</a>
-                            </div>
-
-                            <!-- Modal -->
-<div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="historyModalLabel">Our History</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
-                <p>Additional information about your history can be added here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-                            <div class="col-md-6 xs-padding">
-                                <img src="img/mission.jpg" alt="about-thumb">
-                                <h3>Our Mission</h3>
-                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
+                                <img src="{{m.image.url}}" alt="about-thumb">
+                                <h3>{{m.title}}</h3>
+                                <p>{{m.description|truncatechars:200|safe}}</p>
                                 <a href="#" class="default-btn">Read More</a>
                             </div>
+                            {%endfor%}
+
+
+<!--                            <div class="col-md-6 xs-padding">-->
+<!--                                <img src="img/mission.jpg" alt="about-thumb">-->
+<!--                                <h3>Our Mission</h3>-->
+<!--                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>-->
+<!--                                <a href="#" class="default-btn">Read More</a>-->
+<!--                            </div>-->
                         </div>
                     <!-- </div> -->
                 <!-- </div> -->
