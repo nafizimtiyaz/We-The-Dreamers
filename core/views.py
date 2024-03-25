@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
+from Home.models import Category
 from .models import Volunteer
 
 
 def add_volunteer(request):
+    cat = Category.objects.all()
     if request.method == 'POST':
         volunteer_id = request.POST.get('volunteer_id')
         name = request.POST.get('name')
@@ -48,4 +51,4 @@ def add_volunteer(request):
         )
         volunteer.save()
         return redirect('/contact')  # Redirect after successful form submission
-    return render(request, 'volunteer.html')
+    return render(request, 'volunteer.html', {'cat': cat})

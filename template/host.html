@@ -4,33 +4,87 @@
         
         <div class="header-height"></div>
 
-        <section class="">
+        <section class="hostPageBnr">
             <div class="container">
-                <div class="offset-md-2 col-md-8 xs-padding">
+                <h1 class="text-center text-white">Book a Medical Camp</h1>
+            </div>
+        </section>
+
+        <section class="pt-5 form-body">
+            <div class="container">
+                <div class="offset-md-1 col-md-10 xs-padding">
                     <div class="contact-form">
-                         <h3>Our Management Charges</h3>
+                         <!-- <h3>Our Management Charges</h3>
                         <ul>
                             <li>10 doctors/morning/afternoon any one session/350-500 patients – 5,000 BDT</li>
                             <li>20 doctors/two sessions, full day camp/up to 501-1000 patients – 10,000 BDT</li>
                             <li>20+ Doctors/Two Sessions/More than 1000 Patients – 15,000 BDT</li> <br>
                             <li>Note: Management charges are reduced if camps are organized by social organizations and investigation facilities are available.</li>
-                        </ul><br>
+                        </ul><br> -->
+                        <!-- <section class="promo-section bd-bottom"> -->
+                            <div class="host promo-wrap bd-bottom">
+                               <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12 xs-padding">
+                                            <div class="promo-content fHead">
+                                                <!-- <img src="img/icon-1.png" alt="prmo icon"> -->
+                                                <h3>Our Management Charges</h3>
+                                                <!-- <p>Help today because tomorrow you may be the one who needs helping!</p> -->
+                                                <!-- <a href="#">Read More</a> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 xs-padding">
+                                            <div class="promo-content">
+                                                <!-- <img src="img/icon-1.png" alt="prmo icon"> -->
+                                                <h3>5,000 BDT</h3>
+                                                <p>10 doctors/morning/afternoon any one session/350-500 patients</p>
+                                                <!-- <a href="#">Read More</a> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 xs-padding">
+                                            <div class="promo-content">
+                                                <!-- <img src="img/icon-2.png" alt="prmo icon"> -->
+                                                <h3>10,000</h3>
+                                                <p>20 doctors/two sessions, full day camp/up to 501-1000 patients</p>
+                                                <!-- <a href="#">Read More</a> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 xs-padding">
+                                            <div class="promo-content">
+                                                <!-- <img src="img/icon-3.png" alt="prmo icon"> -->
+                                                <h3>15,000</h3>
+                                                <p>20+ Doctors/Two Sessions/More than 1000 Patients</p>
+                                                <!-- <a href="#">Read More</a> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 xs-padding">
+                                            <div class="promo-content last">
+                                                <!-- <img src="img/icon-1.png" alt="prmo icon"> -->
+                                                <!-- <h3>5,000 BDT</h3> -->
+                                                <p>Note: Management charges are reduced if camps are organized by social organizations and investigation facilities are available.</p>
+                                                <!-- <a href="#">Read More</a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- </section> -->
                         <form action="{%url 'camp'%}" method="post" id="ajax_form" class="form-horizontal">
                             {% csrf_token %}
-                            <p class="font-weight-bold">Primary Information: </p>
                             <div class="form-group colum-row row">
+                                <div class="col-md-12"><p class="font-weight-bold">Primary Information: </p></div>
                                 <div class="col-sm-6">
-                                    <label for="distName">District Name</label>
+                                    <label class="field-required" for="distName">District Name</label>
                                     <input type="text" id="distName" name="districtName" class="form-control" placeholder="District Name">
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="policeStation">Police Station</label>
+                                    <label for="policeStation" class="field-required">Police Station</label>
                                     <input type="text" id="policeStation" name="policeStation" class="form-control" placeholder="Police Station">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                    <label for="campPicker" class="">Date of Camp</label>
+                                    <label for="campPicker" class="field-required">Date of Camp</label>
                                     <div class="input-group date datePicker">
                                         <input type="text" class="form-control" id="campPicker" name="campDate" placeholder="Date of Camp: dd/mm/yyy" />
                                         <span class="input-group-text bg-light">
@@ -39,7 +93,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="hostName">Camp Host Organization Name</label>
+                                    <label for="hostName" class="field-required">Camp Host Organization Name</label>
                                     <input type="text" id="hostName" name="hostName" class="form-control" placeholder="Organization Name">
                                 </div>
                             </div>
@@ -68,15 +122,15 @@
                                     <input type="text" id="actMember" name="org_active_Members" class="form-control" placeholder="Active Member">
                                 </div>
                             </div>
-                            <p class="font-weight-bold">Social Work Philosophy</p>
                             <div class="form-group colum-row row">
+                                <div class="col-12"><p class="font-weight-bold">Social Work Philosophy</p></div>
                                 <div class="col-sm-12">
                                     <label for="purpose">Which Puspose do you want to organize a medical camp?</label>
                                     <input type="text" id="purpose" name="purpose" class="form-control" placeholder="Purpose to organize a medical camp">
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">Organize an Incidental Medical Camp?</p>
+                                <div class="col-12"><p class="">Organize an Incidental Medical Camp?</p></div>
                                 <div class="col-md-12 d-flex justify-content-between">
                                     <div class="radio-group">
                                         <input class="" type="radio" name="incidental_camp" value="YES" id="incidentalYes" />
@@ -96,8 +150,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="font-weight-bold">Previous Camp Management Experience</p>
                             <div class="form-group colum-row row">
+                                <div class="col-12"><p class="font-weight-bold">Previous Camp Management Experience</p></div>
                                 <div class="col-md-12 d-flex justify-content-between">
                                     <p class="">Have organized any medical camp before?</p>
                                     <div class="radio-group">
@@ -125,11 +179,11 @@
                                             </div>
                                         </div>
                                         <div class="form-group colum-row row">
-                                <div class="col-sm-12">
-                                    <label for="whichOrg">With which organization did you organize the camp?</label>
-                                    <input type="text" id="whichOrg" name="Previous_Camp_with_whichOrg" class="form-control" placeholder="Institute Name" >
-                                </div>
-                            </div>
+                                            <div class="col-sm-12">
+                                                <label for="whichOrg">With which organization did you organize the camp?</label>
+                                                <input type="text" id="whichOrg" name="Previous_Camp_with_whichOrg" class="form-control" placeholder="Institute Name" >
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -166,19 +220,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="font-weight-bold ">Camp execution mechanism – External affairs</p>
                             <div class="form-group colum-row row">
+                                <div class="col-12"><p class="font-weight-bold ">Camp execution mechanism – External affairs</p></div>
                                 <div class="col-sm-6">
                                     <label for="expPatient">How many patients are expecting?</label>
                                     <input type="text" id="expPatient" name="expected_Patient" class="form-control" placeholder="How many patients" >
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="campVanue">*Camp Vanue(specifically mention it)</label>
+                                    <label for="campVanue">Camp Vanue(specifically mention it)</label>
                                     <input type="text" id="campVanue" name="camp_Vanue" class="form-control" placeholder="Institutions/Hospital/Clinic...">
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">Will the support of the local union council be available in organizing the camp?</p>
+                                <div class="col-12"><p class="">Will the support of the local union council be available in organizing the camp?</p></div>
                                 <div class="col-md-12 d-flex justify-content-start">
                                     <div class="radio-group mr-5">
                                         <input class="" type="radio" name="local_unionCouncil" value="YES" id="unionCouncilYes" />
@@ -191,7 +245,7 @@
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">Will the local upazila administration and UNO help in organizing the camp?</p>
+                                <div class="col-12"><p class="">Will the local upazila administration and UNO help in organizing the camp?</p></div>
                                 <div class="col-md-12 d-flex justify-content-start">
                                     <div class="radio-group mr-5">
                                         <input class="" type="radio" name="police" value="YES" id="policeYes" />
@@ -204,7 +258,7 @@
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">Can the support of local community leaders be available in organizing the camp?</p>
+                                <div class="col-12"><p class="">Can the support of local community leaders be available in organizing the camp?</p></div>
                                 <div class="col-md-12 d-flex justify-content-start">
                                     <div class="radio-group mr-5">
                                         <input class="" type="radio" name="local_community_leader" value="YES" id="leaderYes" />
@@ -217,7 +271,7 @@
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">Will the support of the local police station administration and OC be available in organizing the camp?</p>
+                                <div class="col-12"><p class="">Will the support of the local police station administration and OC be available in organizing the camp?</p></div>
                                 <div class="col-md-12 d-flex justify-content-start">
                                     <div class="radio-group mr-5">
                                         <input class="" type="radio" name="local_upazila" value="YES" id="upazilaYes" />
@@ -229,8 +283,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="font-weight-bold">Camp execution mechanism – Internal affairs </p>
                             <div class="form-group colum-row row">
+                                <div class="col-12"><p class="font-weight-bold">Camp execution mechanism – Internal affairs </p></div>
                                 <div class="col-md-12 d-flex justify-content-between">
                                     <p class="">Can all patients be registered in advance?</p>
                                     <div class="radio-group">
@@ -287,7 +341,7 @@
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">Are there volunteers like conducting opening and closing ceremonies? Or the medical team will conduct these events:</p>
+                                <div class="col-12"><p class="">Are there volunteers like conducting opening and closing ceremonies? Or the medical team will conduct these events:</p></div>
                                 <div class="col-md-12 d-flex justify-content-between">
                                     <div class="radio-group">
                                         <input class="" type="radio" name="volunterr_conduct" value="Yes (Volunteers will conduct)" id="conductYes" />
@@ -300,7 +354,7 @@
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">Where will be the venue for doctors' breakfast, lunch ± dinner?</p>
+                                <div class="col-12"><p class="">Where will be the venue for doctors' breakfast, lunch ± dinner?</p></div>
                                 <div class="col-md-12 d-flex justify-content-between">
                                     <div class="radio-group">
                                         <input class="" type="radio" name="doctor_eat_Vanue" value="At Camp Vanue" id="eatVanueYes" />
@@ -321,7 +375,7 @@
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">Any site seeing plans with doctors after the camp:</p>
+                                <div class="col-12"><p class="">Any site seeing plans with doctors after the camp:</p></div>
                                 <div class="col-md-12 d-flex justify-content-between">
                                     <div class="radio-group">
                                         <input class="" type="radio" name="site_seeing_plans" value="YES" id="siteSeeingYes" />
@@ -342,7 +396,7 @@
                                 </div>
                             </div>
                             <div class="form-group colum-row row">
-                                <p class="">After completing the camp and doing the medical board, it becomes difficult to come back day by day. Is there a one night accommodation arrangement?</p>
+                                <div class="col-12"><p class="">After completing the camp and doing the medical board, it becomes difficult to come back day by day. Is there a one night accommodation arrangement?</p></div>
                                 <div class="col-md-12 d-flex justify-content-between">
                                     <div class="radio-group">
                                         <input class="" type="radio" name="one_night_accommodation" value="YES" id="accommodationYes" />
@@ -425,9 +479,8 @@
                                     </label>
                                 </div>
                             </div>
-
-                            <p class="font-weight-bold">Mention your volunteers name, facebook id and mobile number in the following posts</p>
                             <div class="form-group colum-row row">
+                                <div class="col-12"><p class="font-weight-bold">Mention your volunteers name, facebook id and mobile number in the following posts</p></div>
                                 <div class="col-md-12">
                                     <p><span class="font-weight-bold">Chief Executive</span> - Liaison with police station, upazila and local leadership</p>
                                 </div>
@@ -576,7 +629,7 @@
                 });
             }
 
-        })(jQuery);
+        })();
 
         </script>
 

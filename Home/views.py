@@ -1,4 +1,7 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
+
+from AboutUs.models import Review
+from ImageGallary.models import Gallery
 from .models import Event, Category, OurActivity, MedicalCamp, Slider
 
 
@@ -6,40 +9,50 @@ def Home(request):
     sliders = Slider.objects.all()
     cat = Category.objects.all()
     activity = OurActivity.objects.all().order_by('-id')
-    return render(request, 'index.html', {'cat': cat, 'sliders': sliders,'activity':activity})
+    all_images = Gallery.objects.all().order_by('-id')[:7]
+    events = Event.objects.all().order_by('-date')[:3]
+    reviews = Review.objects.all()
+    return render(request, 'index.html', {'reviews':reviews, 'cat': cat, 'sliders': sliders, 'activity':activity, 'all_images':all_images, 'events':events})
 
 
 def event_list(request):
+    cat = Category.objects.all()
     events = Event.objects.all().order_by('-date')
-    return render(request, 'events.html', {'events': events})
+    return render(request, 'events.html', {'cat': cat, 'events': events})
 
 
 def event_detail(request, uid):
+    cat = Category.objects.all()
     event = get_object_or_404(Event, uid=uid)
-    return render(request, 'event-single.html', {'event': event})
+    return render(request, 'event-single.html', {'event': event, 'cat': cat})
 
 
 def recent_activaties(request):
+    cat = Category.objects.all()
     activity = OurActivity.objects.all()
-    return render(request, 'all_recent.html', {'activity': activity})
+    return render(request, 'all_recent.html', {'cat': cat, 'activity': activity})
 
 
 def activity_details(request, uid):
+    cat = Category.objects.all()
     activity = get_object_or_404(OurActivity, uid=uid)
-    return render(request, 'recent-single.html', {'activity': activity})
+    return render(request, 'recent-single.html', {'cat': cat, 'activity': activity})
 
 
 def category_detail(request, slug):
+    cat = Category.objects.all()
     category = Category.objects.get(slug=slug)
     activities = OurActivity.objects.filter(category=category)
-    return render(request, 'recents.html', {'category': category, 'activities': activities})
+    return render(request, 'recents.html', {'cat': cat, 'category': category, 'activities': activities})
 
 
 def volunteer(request):
-    return render(request, 'volunteer.html')
+    cat = Category.objects.all()
+    return render(request, 'volunteer.html',{'cat': cat})
 
 
 def medical_camp(request):
+    cat = Category.objects.all()
     if request.method == 'POST':
         # Retrieve data from the POST request
         district_name = request.POST.get('districtName')
@@ -185,4 +198,4 @@ def medical_camp(request):
 
         return redirect('/')  # Redirect to a success page after saving
     else:
-        return render(request, 'host.html')
+        return render(request, 'host.html', {'cat': cat})

@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block body %}
+{% load static %}
+        
+        <div class="header-height">
+
+        </div>
+
+        <section class="blog-section bg-grey padding">
+            <div class="container">
+                {%for m in medi%}
+                <div class="row">
+                    <div class="col-lg-9 sm-padding">
+                        <div class="blog-items single-post row">
+                            <img src="{{m.image.url}}" alt="blog post">
+                            <h2>{{m.title}}</h2>
+                            <p>{{m.description|safe}}</p>
+                            <div class="share-wrap">
+                                <h4>Share This Now</h4>
+                                <div class="sharethis-inline-share-buttons"></div>
+                            </div><!-- Share Wrap -->
+
+                        </div>
+                    </div><!-- Blog Posts -->
+                </div>
+                {%endfor%}
+            </div>
+        </section><!-- /Blog Section -->
+
+{% endblock body %}

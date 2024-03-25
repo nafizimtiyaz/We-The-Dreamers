@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import AboutUs, OurMission, OurVision, AboutActivity, MedicalWings, EducationWing, DisasterManagementWig
+from .models import AboutUs, OurMission, OurVision, AboutActivity, MedicalWings, EducationWing, DisasterManagementWig, \
+    Review
 
 
 @admin.register(AboutUs)
@@ -28,17 +29,22 @@ class AboutActivityAdmin(admin.ModelAdmin):
 
 @admin.register(MedicalWings)
 class MedicalWingsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description',)
-    search_fields = ('name', 'description',)
+    list_display = ('description',)
+    search_fields = ('description',)
 
 
 @admin.register(EducationWing)
 class EducationWingAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description',)
-    search_fields = ('name', 'description',)
+    list_display = ('description',)
+    search_fields = ('description',)
 
 
 @admin.register(DisasterManagementWig)
 class DisasterManagementWigAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description',)
-    search_fields = ('name', 'description',)
+    list_display = ('description',)
+    search_fields = ('description',)
+
+
+@admin.register(Review)
+class EnevtAdmin(admin.ModelAdmin):
+    list_display = ['name', 'image']

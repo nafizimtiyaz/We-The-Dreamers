@@ -225,6 +225,11 @@
 
 /* ---- Start of max-width 480px CSS ---- */
 @media all and (max-width: 480px) {
+    .header-section{position: relative;}
+    .header-height{display: none !important}
+    .hLogo{
+        width: 70px;
+    }
     .coment-form .form-group .col-sm-4{
         margin-bottom: 15px;
         margin-top: auto;

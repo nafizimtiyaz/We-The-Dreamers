@@ -68,52 +68,88 @@
                 <!-- </div> -->
             </div>
         </section>
+
+        <section class="blog-section bg-grey bd-bottom padding">
+            <div class="container">
+                <div class="section-heading text-center mb-40">
+                    <h2>Our Wings</h2>
+                    <span class="heading-border"></span>
+                    <!-- <p>
+                        Help today because tomorrow you may be the one who <br />
+                        needs more helping!
+                    </p> -->
+                </div>
+                <!-- /Section Heading -->
+                <div class="row">
+                    <div class="col-lg-12 xs-padding">
+                        <div class="blog-items grid-list row">
+                            <div class="col-md-4 padding-15">
+                                <div class="blog-post">
+                                    <!-- <img src="img/home-blog-1.jpg" alt="blog post" /> -->
+                                    <div class="blog-content">
+                                        <!-- <span class="date"><i class="fa fa-clock-o"></i> January 01.2021</span> -->
+                                        <h3><a href="#">Medical Wings</a></h3>
+                                        <!-- <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p> -->
+                                        <a href="#" class="post-meta">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Post 1 -->
+                            <div class="col-md-4 padding-15">
+                                <div class="blog-post">
+                                    <!-- <img src="img/home-blog-2.jpg" alt="blog post" /> -->
+                                    <div class="blog-content">
+                                        <!-- <span class="date"><i class="fa fa-clock-o"></i> January 01.2021</span> -->
+                                        <h3><a href="#">Education Wings</a></h3>
+                                        <!-- <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p> -->
+                                        <a href="#" class="post-meta">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Post 2 -->
+                            <div class="col-md-4 padding-15">
+                                <div class="blog-post">
+                                    <!-- <img src="img/home-blog-3.jpg" alt="blog post" /> -->
+                                    <div class="blog-content">
+                                        <!-- <span class="date"><i class="fa fa-clock-o"></i> January 01.2021</span> -->
+                                        <h3><a href="#">Disaster Management</a></h3>
+                                        <!-- <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p> -->
+                                        <a href="#" class="post-meta">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Post 3 -->
+                        </div>
+                    </div>
+                    <!-- Blog Posts -->
+                </div>
+            </div>
+        </section>
         
         <section class="events-section bg-grey bd-bottom padding">
             <div class="container">
+                <div class="section-heading text-center mb-40">
+                    <h2>Message From Gunijon</h2>
+                    <span class="heading-border"></span>
+                    <!-- <p>
+                        Help today because tomorrow you may be the one who <br />
+                        needs more helping!
+                    </p> -->
+                </div>
                 <div id="about-carousel" class="events-wrap owl-Carousel">
+                    {%for r in reviews%}
                     <div class="about-item">
-                        <div class="about-item-img">
-                            <img src="img/charityImg.webp" alt="events" />
-                        </div>
                         <div class="event-details">
-                            <h3>"I have seen firsthand everything Save the Children does to keep children healthy, happy and safe. Any amount will help make change for children in the U.S. and around the world."</h3>
+                            <h3>{{r.description|safe}}</h3>
                             <div class="authorDetails">
                                 <div class="imgProfile">
-                                    <img src="img/comment-2.jpg" alt="">
+                                    <img src={{r.image.url}} alt="">
                                 </div>
-                                <p>Jennifer Garner, Save the Children Ambassador and Trustee</p>
+                                <p>{{r.name}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="about-item">
-                        <div class="about-item-img">
-                            <img src="img/charityImg.webp" alt="events" />
-                        </div>
-                        <div class="event-details">
-                            <h3>"I have seen firsthand everything Save the Children does to keep children healthy, happy and safe. Any amount will help make change for children in the U.S. and around the world."</h3>
-                            <div class="authorDetails">
-                                <div class="imgProfile">
-                                    <img src="img/comment-2.jpg" alt="">
-                                </div>
-                                <p>Jennifer Garner, Save the Children Ambassador and Trustee</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-item">
-                        <div class="about-item-img">
-                            <img src="img/charityImg.webp" alt="events" />
-                        </div>
-                        <div class="event-details">
-                            <h3>"I have seen firsthand everything Save the Children does to keep children healthy, happy and safe. Any amount will help make change for children in the U.S. and around the world."</h3>
-                            <div class="authorDetails">
-                                <div class="imgProfile">
-                                    <img src="img/comment-2.jpg" alt="">
-                                </div>
-                                <p>Jennifer Garner, Save the Children Ambassador and Trustee</p>
-                            </div>
-                        </div>
-                    </div>
+                    {%endfor%}
                 </div>
             </div>
         </section>

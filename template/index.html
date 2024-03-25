@@ -21,8 +21,8 @@
                                    <h5 class="wow cssanimation fadeInBottom">Join Us Today</h5>
                                    <h1 class="wow cssanimation leFadeInRight sequence">Better Life for People</h1>
                                     <p class="wow cssanimation fadeInTop" data-wow-delay="1s">Help today because tomorrow you may be the one who needs helping! <br>Forget what you can get and see what you can give.</p>
-                                    <a href="#" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Join With Us</a>
-                                    <a href="#" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Donet Now</a>
+                                    <a href="{%url 'volunteer'%}" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Join With Us</a>
+                                    <a href="{%url 'contact'%}" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Contact Us</a>
                                 </div>
                            </div>
                         </div>
@@ -35,9 +35,8 @@
                                <div class="slider-text">
                                     <h1 class="wow cssanimation fadeInTop" data-wow-delay="1s" data-wow-duration="800ms">Together we  <br>can make a Difference</h1>
                                     <p class="wow cssanimation fadeInBottom" data-wow-delay="1s">Help today because tomorrow you may be the one who needs helping! <br>Forget what you can get and see what you can give.</p>
-                                    <a href="#" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Join With Us</a>
-                                    <a href="#" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Donet Now</a>
-                                </div>
+                                    <a href="{%url 'volunteer'%}" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Join With Us</a>
+                                    <a href="{%url 'contact'%}" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Contact Us</a>                     </div>
                            </div>
                         </div>
                     </div>
@@ -50,8 +49,8 @@
                                     <h5 class="wow cssanimation fadeInBottom">Join Us Today</h5>
                                     <h1 class="wow cssanimation lePushReleaseFrom sequence" data-wow-delay="1s">Give a little. Change a lot.</h1>
                                     <p class="wow cssanimation fadeInTop" data-wow-delay="1s">Help today because tomorrow you may be the one who needs helping! <br>Forget what you can get and see what you can give.</p>
-                                    <a href="#" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Join With Us</a>
-                                    <a href="#" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Donet Now</a>
+                                    <a href="{%url 'volunteer'%}" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Join With Us</a>
+                                    <a href="{%url 'contact'%}" class="default-btn wow cssanimation fadeInBottom" data-wow-delay="0.8s">Contact Us</a>
                                 </div>
                            </div>
                         </div>
@@ -66,26 +65,26 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6 xs-padding">
                             <div class="promo-content">
-                                <img src="img/icon-1.png" alt="prmo icon">
-                                <h3>Make Donetion</h3>
+                                <div class="promoIcon"><img class="img-fluid" src={%static "img/examination.png"%} alt="prmo icon"></div>
+                                <h3>Medical Wings</h3>
                                 <p>Help today because tomorrow you may be the one who needs helping!</p>
-                                <a href="#">Read More</a>
+                                <a href={%url 'medical'%}>Read More</a>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 xs-padding">
                             <div class="promo-content">
-                                <img src="img/icon-2.png" alt="prmo icon">
-                                <h3>Fundrising</h3>
+                                <div class="promoIcon"><img class="img-fluid" src={%static "img/edu.png"%} alt="prmo icon"></div>
+                                <h3>Education Wings</h3>
                                 <p>Help today because tomorrow you may be the one who needs helping! </p>
-                                <a href="#">Read More</a>
+                                <a href="{%url 'education'%}">Read More</a>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6 xs-padding">
                             <div class="promo-content">
-                                <img src="img/icon-3.png" alt="prmo icon">
-                                <h3>Become A Volunteer</h3>
+                                <div class="promoIcon"><img class="img-fluid" src={%static "img/crisis.png"%} alt="prmo icon"></div>
+                                <h3>Disaster Management</h3>
                                 <p>Help today because tomorrow you may be the one who needs helping! </p>
-                                <a href="#">Read More</a>
+                                <a href={%url 'disaster'%}>Read More</a>
                             </div>
                         </div>
                     </div>
@@ -99,17 +98,15 @@
                     <h2>Our Recent Activities</h2>
                     <span class="heading-border"></span>
                     <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
-                </div><!-- /Section Heading -->
+                </div>
                 <div class="causes-wrap row">
                     {%for e in activity%}
-                    <div class="col-md-4 xs-padding">
+                    <div class="col-md-4 mt-4 xs-padding">
                         <div class="causes-content">
                            <div class="causes-thumb">
                                 <img src={{e.image.url}} alt="causes">
-                                <a href="#" class="donate-btn">{{e.category}}<i class="ti-plus"></i></a>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft">25%</span></div>
-                                </div>
+                                <a href="#" class="donate-btn">{{e.category}}</a>
+
                            </div>
                             <div class="causes-details">
                                 <h3>{{ e.title }}</h3>
@@ -119,62 +116,18 @@
                         </div>
                     </div><!-- /Causes-1 -->
                     {%endfor%}
+                    <div class="col-12 d-flex justify-content-center align- items-center"><a href="{%url 'all'%}" class="default-btn mt-5 px-5">View All</a></div>
                 </div>
             </div>
         </section><!-- /Causes Section -->
-        
-        <section class="about-section bd-bottom shape circle padding">
+
+        <section class="campaigns-section bd-bottom position-relative overlay-video">
             <div class="container">
                 <div class="row">
-                   <div class="col-md-4 xs-padding">
-                        <div class="profile-wrap">
-                            <img class="profile" src="img/profile.jpg" alt="profile">
-                            <h3>Jonathan Smith <span>CEO & Founder of Charitify.</span></h3>
-                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                            <img src="img/sign.png" alt="sign">
-                        </div>
-                    </div>
-                    <div class="col-md-8 xs-padding">
-                        <div class="about-wrap row">
-                            <div class="col-md-6 xs-padding">
-                                <img src="img/history.jpg" alt="about-thumb">
-                                <h3>Our History</h3>
-                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
-                                <a href="#" class="default-btn">Read More</a>
-                            </div>
-                            <div class="col-md-6 xs-padding">
-                                <img src="img/mission.jpg" alt="about-thumb">
-                                <h3>Our Mission</h3>
-                                <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor.</p>
-                                <a href="#" class="default-btn">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- /Causes Section -->
-        
-        <section class="campaigns-section bd-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 xs-padding">
-                        <div class="campaigns-wrap">
-                            <h4>Featured Campaigns</h4>
-                            <h2>Featured project to built a School.</h2>
-                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="wow cssanimation fadeInLeft">35%</span></div>
-                            </div>
-                            <div class="donation-box">
-                                <h3><i class="ti-bar-chart"></i>Goal: $450000</h3>
-                                <h3><i class="ti-thumb-up"></i>Raised: $55000</h3>
-                            </div>
-                            <a href="#" class="default-btn">Donate Now</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 xs-padding">
+                    <div class="col-md-12 d-flex justify-content-center flex-column align-items-center xs-padding">
+                        <h1 class="mb-5 text-white">Let's Discover Us</h1>
                         <div class="video-wrap">
-                            <img src="img/video.jpg" alt="video">
+                            <!-- <img src={%static "img/video.jpg"%} alt="video"> -->
                             <div class="play">
                                 <a class="img-popup" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/watch?v=_IlLwfC2dNc"><i class="ti-control-play"></i></a>
                             </div>
@@ -182,15 +135,48 @@
                     </div>
                 </div>
             </div>
-        </section><!-- /Featured Campaigns Section -->
+        </section>
         
-        <section class="team-section bg-grey bd-bottom circle shape padding">
+        <section class="about-section bd-bottom shape circle padding">
+            <div class="section-heading text-center mb-40">
+                <h2>Our Recent Events</h2>
+                <span class="heading-border"></span>
+                <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                   <!-- <div class="col-md-4 xs-padding">
+                        <div class="profile-wrap">
+                            <img class="profile" src="img/profile.jpg" alt="profile">
+                            <h3>Jonathan Smith <span>CEO & Founder of Charitify.</span></h3>
+                            <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
+                            <img src="img/sign.png" alt="sign">
+                        </div>
+                    </div> -->
+                    <div class="col-md-12 xs-padding">
+                        <div class="about-wrap row justify-content-center">
+                            {%for e in events%}
+                            <div class="col-md-4 xs-padding">
+                                <img src={{e.image.url}} alt="about-thumb">
+                                <h3>{{e.title}}</h3>
+                                <p>{{e.description|truncatechars:50|safe}}</p>
+                                <a href="{% url 'event-detailss' uid=e.uid %}" class="default-btn">Read More</a>
+                            </div>
+                            {%endfor%}
+                            <a href="{%url 'events'%}" class="default-btn mt-5 px-5">View All</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Causes Section -->
+        
+        <!-- <section class="team-section bg-grey bd-bottom circle shape padding">
             <div class="container">
                 <div class="section-heading text-center mb-40">
                     <h2>Meet Out Volunteers</h2>
                     <span class="heading-border"></span>
                     <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
-                </div><!-- /Section Heading -->
+                </div>
                 <div class="team-wrapper row">
                     <div class="col-lg-6 sm-padding">
                         <div class="team-wrap row">
@@ -201,7 +187,7 @@
                                         <h3>Jonathan Smith <span>Communicator</span></h3>
                                     </div>
                                 </div>
-                            </div><!-- /Team-1 -->
+                            </div>
                             <div class="col-md-6">
                                 <div class="team-details">
                                    <img src="img/team-2.jpg" alt="team">
@@ -209,7 +195,7 @@
                                         <h3>Angelina Rose <span>Certified Reader</span></h3>
                                     </div>
                                 </div>
-                            </div><!-- /Team-2 -->
+                            </div>
                             <div class="col-md-6">
                                 <div class="team-details">
                                     <img src="img/team-3.jpg" alt="team">
@@ -217,7 +203,7 @@
                                         <h3>Taylor Swift <span>Event Creator</span></h3>
                                     </div>
                                 </div>
-                            </div><!-- /Team-3 -->
+                            </div>
                             <div class="col-md-6">
                                 <div class="team-details">
                                    <img src="img/team-4.jpg" alt="team">
@@ -225,7 +211,7 @@
                                         <h3>Michel Brown <span>Internet Specialist</span></h3>
                                     </div>
                                 </div>
-                            </div><!-- /Team-4 -->
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 sm-padding">
@@ -245,7 +231,7 @@
                     </div>
                 </div>
             </div>
-        </section><!-- /Team Section -->
+        </section> -->
         
         <section id="counter" class="counter-section">
 		    <div class="container">
@@ -261,7 +247,7 @@
                         <div class="counter-content">
                             <i class="ti-face-smile"></i>
                             <h3 class="counter">10693</h3>
-                            <h4 class="text-white">Volunteer Around The World</h4>
+                            <h4 class="text-white">Volunteers</h4>
                         </div>
                     </li>
                     <li class="col-md-3 col-sm-6 sm-padding">
@@ -275,66 +261,43 @@
                         <div class="counter-content">
                             <i class="ti-comments"></i>
                             <h3 class="counter">669</h3>
-                            <h4 class="text-white">Positive Feedbacks</h4>
+                            <h4 class="text-white">Free Medical Camp</h4>
                         </div>
                     </li>
                 </ul>
 		    </div>
 		</section><!-- Counter Section -->
        
-        <section class="events-section bg-grey bd-bottom padding">
-           <div class="container">
-                <div class="section-heading text-center mb-40">
-                    <h2>Upcoming Events</h2>
-                    <span class="heading-border"></span>
-                    <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
-                </div><!-- /Section Heading -->
-                <div id="event-carousel" class="events-wrap owl-Carousel">
-                    <div class="events-item">
-                        <div class="event-thumb">
-                           <img src="img/events-1.jpg" alt="events">
-                        </div>
-                        <div class="event-details">
-                            <h3>Let's talk about the poor children.</h3>
-                            <div class="event-info">
-                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
-                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
+        <section class="gallery-section bg-grey bd-bottom padding">
+            <div class="container">
+                <h2 class="text-center my-5">Gallery</h2>
+                <!-- <div class="row">
+                    <ul class="gallery-filter align-center mb-30">
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".branding">Branding</li>
+                        <li data-filter=".design">Design</li>
+                        <li data-filter=".wordpress">Wordpress</li>
+                        <li data-filter=".marketing">Marketing</li>
+                    </ul>
+                </div> -->
+                <div class="gallery-items row">
+
+                    {%for all in all_images%}
+                    <div class="col-lg-4 col-sm-6 single-item marketing design">
+
+                        <div class="gallery-wrap">
+                            <img src="{{all.image.url}}" alt="gallery">
+                            <div class="hover">
+                                <a class="img-popup" data-gall="{{all.image.url}}" href="img/gallery-6.jpg"><i class="ti-image"></i></a>
                             </div>
-                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
-                            <a href="#" class="default-btn">Read More</a>
                         </div>
-                    </div><!-- Event-1 -->
-                    <div class="events-item">
-                        <div class="event-thumb">
-                           <img src="img/events-2.jpg" alt="events">
-                        </div>
-                        <div class="event-details">
-                            <h3>Insure clean water to everyone in Africa.</h3>
-                            <div class="event-info">
-                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
-                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
-                            </div>
-                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
-                            <a href="#" class="default-btn">Read More</a>
-                        </div>
-                    </div><!-- Event-2 -->
-                    <div class="events-item">
-                        <div class="event-thumb">
-                           <img src="img/events-3.jpg" alt="events">
-                        </div>
-                        <div class="event-details">
-                            <h3>Nepal Earthquake Clean Water Initiative.</h3>
-                            <div class="event-info">
-                                <p><i class="ti-calendar"></i>Started On: 12:00 PM.</p>
-                                <p><i class="ti-location-pin"></i>Grand Mahal, Dubai 2100.</p>
-                            </div>
-                            <p>Help today because tomorrow you may be the one who needs more helping!</p>
-                            <a href="#" class="default-btn">Read More</a>
-                        </div>
-                    </div><!-- Event-3 -->
+
+                    </div><!-- /Item-6 -->
+                    {%endfor%}
                 </div>
-           </div>
-        </section><!-- Events Section -->
+                <div class="col-12 d-flex justify-content-center align- items-center"><a href="/gallery" class="default-btn mt-5 px-5">See All</a></div>
+            </div>
+        </section>
         
         <section class="testimonial-section bd-bottom padding">
             <div class="container">
@@ -344,34 +307,15 @@
                     <p>Help today because tomorrow you may be the one who <br> needs more helping!</p>
                 </div><!-- /Section Heading -->
                 <div id="testimonial-carousel" class="testimonial-carousel owl-carousel">
+                    {%for m in reviews %}
                     <div class="testimonial-item">
-                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
+                        <p>{{m.description|safe|truncatechars:200}}</p>
                         <div class="testi-footer">
-                           <img src="img/team-1.jpg" alt="profile">
-                            <h4>Jonathan Smith <span>Marketer</span></h4>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                        <div class="testi-footer">
-                           <img src="img/team-2.jpg" alt="profile">
-                            <h4>Angelina Rose <span>Designer</span></h4>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                        <div class="testi-footer">
-                           <img src="img/team-3.jpg" alt="profile">
-                            <h4>Taylor Swift <span>Developer</span></h4>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>The secret to happiness lies in helping others. Never underestimate the difference YOU can make in the lives of the poor, the abused and the helpless.</p>
-                        <div class="testi-footer">
-                           <img src="img/team-4.jpg" alt="profile">
+                           <img src={{m.image.url}} alt="profile">
                             <h4>Michel Brown <span>Programer</span></h4>
                         </div>
                     </div>
+                    {%endfor%}
                 </div>
             </div>
         </section><!-- Testimonial Section -->

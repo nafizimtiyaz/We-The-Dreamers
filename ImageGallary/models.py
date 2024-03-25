@@ -13,11 +13,12 @@ class Category(models.Model):
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.name
+
 
 class Gallery(models.Model):
     uid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     image = models.ImageField(upload_to='Gallery/image')
-    description = models.TextField(max_length=5000)
-    location = models.CharField(max_length=100)
 

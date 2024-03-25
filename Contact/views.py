@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 from Contact.models import Contact
+from Home.models import Category
 
 
 def ContactUs(request):
+    cat = Category.objects.all()
     if request.method == 'POST':
         name = request.POST['name']
         Email = request.POST['Email']
@@ -15,4 +17,4 @@ def ContactUs(request):
         return redirect('/contact')
 
     else:
-        return render(request, 'contact.html')
+        return render(request, 'contact.html',{'cat': cat,})
